@@ -11,5 +11,6 @@ namespace WolfRPG.Inventory
 		public int BaseValue { get; set; }
 		public bool CanEquip { get; set; }
 		public bool CanUse { get; set; }
+		public float Weight { get; set; }
 	}
 }

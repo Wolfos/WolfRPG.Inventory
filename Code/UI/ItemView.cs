@@ -22,7 +22,7 @@ namespace WolfRPG.Inventory
 			}
 
 			this.Query<Label>("Type").First(); // TODO: Types
-			this.Query<Label>("Weight").First(); // TODO: Weight
+			this.Query<Label>("Weight").First().text = item.Weight.ToString("F1"); // F1 = 123.4
 			this.Query<Label>("Value").First().text = item.BaseValue.ToString();
 		}
 	}
