@@ -1,4 +1,5 @@
 ﻿using UnityEngine.UIElements;
+using WolfRPG.Core.Localization;
 
 namespace WolfRPG.Inventory
 {
@@ -21,7 +22,8 @@ namespace WolfRPG.Inventory
 				this.Query<Label>("Name").First().text = item.Name.Get();
 			}
 
-			this.Query<Label>("Type").First(); // TODO: Types
+			var localizationKey = $"ItemCategory{(int) item.Type}";
+			this.Query<Label>("Type").First().text = LocalizationFile.Get(localizationKey);
 			this.Query<Label>("Weight").First().text = item.Weight.ToString("F1"); // F1 = 123.4
 			this.Query<Label>("Value").First().text = item.BaseValue.ToString();
 		}
