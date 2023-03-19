@@ -1,42 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/WolfRPG_UI.uss?fileID=7433441132597879392&amp;guid=2352675591c840840a893c1a9a4a13a0&amp;type=3#WolfRPG_UI" />
-    <ui:GroupBox style="background-color: rgba(0, 0, 0, 0.2); flex-basis: 100%; width: 40%;">
+    <ui:GroupBox name="InventoryPanel" style="background-color: rgba(0, 0, 0, 0.2); flex-basis: auto; width: 40%; padding-left: 0; padding-top: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-right: 0; padding-bottom: 0; color: rgb(255, 255, 255); position: absolute; bottom: 100%; height: 100%; top: 0; flex-shrink: 1; flex-grow: 1;">
         <ui:GroupBox name="Categories" class="Horizontal">
             <ui:Button text="All" display-tooltip-when-elided="true" style="background-color: rgba(255, 255, 255, 0.1); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
             <ui:Button text="Weapons" display-tooltip-when-elided="true" style="background-color: rgba(255, 255, 255, 0.1); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
             <ui:Button text="Equipment" display-tooltip-when-elided="true" style="background-color: rgba(255, 255, 255, 0.1); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
             <ui:Button text="Consumables" display-tooltip-when-elided="true" style="background-color: rgba(255, 255, 255, 0.1); padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" />
         </ui:GroupBox>
-        <ui:GroupBox name="Header" class="Horizontal" style="background-color: rgba(0, 0, 0, 0.1); position: relative; height: 28px;">
+        <ui:GroupBox name="Header" class="Horizontal" style="background-color: rgba(0, 0, 0, 0.1); position: relative; height: 28px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
             <ui:GroupBox name="Left" class="Horizontal" style="position: absolute; margin-top: 1px;">
-                <ui:VisualElement style="background-color: rgb(0, 0, 0); width: 10px; height: 10px; padding-left: 1px; padding-right: 2px;" />
-                <ui:Label text="Name" display-tooltip-when-elided="true" style="margin-left: 5px; -unity-text-align: upper-left;" />
+                <ui:VisualElement style="background-color: rgb(0, 0, 0); width: 10px; height: 10px; padding-left: 1px; padding-right: 2px; margin-top: 3px;" />
+                <ui:Label text="Name" display-tooltip-when-elided="true" style="margin-left: 0; -unity-text-align: upper-left; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 10px; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
             </ui:GroupBox>
             <ui:GroupBox name="Right" class="Horizontal" style="justify-content: flex-end; align-items: center; flex-direction: row; right: 0; left: auto; position: absolute; margin-top: 1px;">
-                <ui:Label text="Type" display-tooltip-when-elided="true" style="position: absolute; right: 140px;" />
-                <ui:Label text="Weight" display-tooltip-when-elided="true" style="position: absolute; right: 60px;" />
-                <ui:Label text="Value" display-tooltip-when-elided="true" />
+                <ui:Label text="Type" display-tooltip-when-elided="true" style="position: absolute; right: 149px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; top: 4px;" />
+                <ui:Label text="Weight" display-tooltip-when-elided="true" style="position: absolute; right: 62px; top: -4px;" />
+                <ui:Label text="Value" display-tooltip-when-elided="true" style="margin-left: 2px; margin-right: 4px; margin-top: 4px; margin-bottom: 2px; padding-left: 1px; padding-right: 2px; padding-top: 4px; padding-bottom: 4px; top: -4px; right: 0; position: absolute;" />
             </ui:GroupBox>
         </ui:GroupBox>
-        <ui:ScrollView style="position: relative; left: 0; top: 0; right: 0; bottom: 100%; flex-grow: 1; flex-shrink: 1;">
-            <ui:GroupBox name="Item" class="Horizontal" style="background-color: rgba(0, 0, 0, 0); position: relative; height: 28px;">
-                <ui:GroupBox name="Left" class="Horizontal" style="position: absolute; margin-top: 1px;">
-                    <ui:VisualElement style="background-color: rgb(0, 0, 0); width: 10px; height: 10px; padding-left: 1px; padding-right: 2px;" />
-                    <ui:Label text="Health Potion" display-tooltip-when-elided="true" style="margin-left: 5px; -unity-text-align: upper-left;" />
-                </ui:GroupBox>
-                <ui:Label text="Consumable" display-tooltip-when-elided="true" style="justify-content: center; -unity-text-align: middle-center; position: absolute; right: 118px; top: auto; align-items: center; padding-left: 0; padding-right: 0; padding-top: 5px; padding-bottom: 0; white-space: normal; width: 80px;" />
-                <ui:Label text="0.1" display-tooltip-when-elided="true" style="width: 30px; position: absolute; top: 0; left: auto; right: 67px; padding-top: 5px;" />
-                <ui:Label text="10" display-tooltip-when-elided="true" style="position: absolute; top: 0; left: auto; width: 30px; right: 7px; padding-top: 5px; -unity-text-align: upper-center;" />
-            </ui:GroupBox>
-            <ui:GroupBox name="Item" class="Horizontal" style="background-color: rgba(0, 0, 0, 0); position: relative; height: 28px;">
-                <ui:GroupBox name="Left" class="Horizontal" style="position: absolute; margin-top: 1px;">
-                    <ui:VisualElement style="background-color: rgb(0, 0, 0); width: 10px; height: 10px; padding-left: 1px; padding-right: 2px;" />
-                    <ui:Label text="Epic sword of badassery" display-tooltip-when-elided="true" style="margin-left: 5px; -unity-text-align: upper-left;" />
-                </ui:GroupBox>
-                <ui:Label text="Weapon" display-tooltip-when-elided="true" style="justify-content: center; -unity-text-align: middle-center; position: absolute; right: 118px; top: auto; align-items: center; padding-left: 0; padding-right: 0; padding-top: 5px; padding-bottom: 0; white-space: normal; width: 80px;" />
-                <ui:Label text="1.5" display-tooltip-when-elided="true" style="width: 30px; position: absolute; top: 0; left: auto; right: 67px; padding-top: 5px;" />
-                <ui:Label text="5000" display-tooltip-when-elided="true" style="position: absolute; top: 0; left: auto; width: 30px; right: 7px; padding-top: 5px; -unity-text-align: upper-center;" />
-            </ui:GroupBox>
-        </ui:ScrollView>
+        <ui:ScrollView name="ItemList" style="flex-grow: 1; flex-basis: 100%; height: 100%;" />
     </ui:GroupBox>
 </ui:UXML>

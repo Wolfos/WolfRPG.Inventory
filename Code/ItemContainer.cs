@@ -8,6 +8,11 @@ namespace WolfRPG.Inventory
 {
 	public class ItemContainer
 	{
+		/// <summary>
+		/// The amount of item slots
+		/// </summary>
+		public int Count => _inventorySlots.Count;
+		
 		private IRPGDatabase _rpgDatabase;
 		private List<InventorySlot> _inventorySlots = new();
 
