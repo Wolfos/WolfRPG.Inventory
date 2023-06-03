@@ -2,7 +2,8 @@
     "name": "WolfRPG.Inventory",
     "rootNamespace": "",
     "references": [
-        "GUID:185b1bff81d510640aa7885704058061"
+        "GUID:185b1bff81d510640aa7885704058061",
+        "GUID:932c2ee4d1c3f654d9a8cf0af41ff2fa"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

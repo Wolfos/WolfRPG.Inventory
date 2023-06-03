@@ -15,6 +15,11 @@ namespace WolfRPG.Inventory
 		
 		private IRPGDatabase _rpgDatabase;
 		private List<InventorySlot> _inventorySlots = new();
+		
+		public int Money { get; set; }
+		
+		public Action<ItemData, int> OnItemAdded { get; set; }
+		public Action<ItemData, int> OnItemRemoved { get; set; } // TODO: Implement
 
 		public ItemContainer()
 		{
@@ -30,12 +35,13 @@ namespace WolfRPG.Inventory
 		/// Add an item to the first available slot in this inventory, or increase quantity if we already have it
 		/// </summary>
 		/// <param name="itemObject">The item</param>
-		public void AddItem(IRPGObject itemObject)
+		/// <param name="quantity">Quantity of item to add</param>
+		public void AddItem(IRPGObject itemObject, int quantity = 1)
 		{
 			var slot = _inventorySlots.FirstOrDefault(s => s.Guid == itemObject.Guid);
 			if (slot != null) // Already have this item
 			{
-				slot.Quantity++;
+				slot.Quantity += quantity;
 			}
 			else
 			{
@@ -47,14 +53,35 @@ namespace WolfRPG.Inventory
 
 				var itemData = itemObject.GetComponent<ItemData>();
 				itemData.RpgObject = itemObject;
-				
-				_inventorySlots.Add(
-					new InventorySlot
+
+				slot = new()
 				{
 					ItemData = itemData,
-					Quantity = 1
-				});
+					Quantity = quantity
+				};
+				_inventorySlots.Add(slot);
 			}
+
+			var slotIndex = _inventorySlots.IndexOf(slot);
+			OnItemAdded?.Invoke(slot.ItemData, slotIndex);
+		}
+
+		public void RemoveItem(IRPGObject itemObject, int quantity = 1)
+		{
+			var slot = _inventorySlots.FirstOrDefault(s => s.Guid == itemObject.Guid);
+			if (slot == null)
+			{
+				return;
+			}
+
+			slot.Quantity -= quantity;
+			if (slot.Quantity <= 0)
+			{
+				_inventorySlots.Remove(slot);
+			}
+			
+			var slotIndex = _inventorySlots.IndexOf(slot);
+			OnItemRemoved?.Invoke(slot.ItemData, slotIndex);
 		}
 		
 		/// <summary>
