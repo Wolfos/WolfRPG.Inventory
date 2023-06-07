@@ -16,10 +16,13 @@ namespace WolfRPG.Inventory
 		private IRPGDatabase _rpgDatabase;
 		private List<InventorySlot> _inventorySlots = new();
 		
+		
 		public int Money { get; set; }
 		
 		public Action<ItemData, int> OnItemAdded { get; set; }
 		public Action<ItemData, int> OnItemRemoved { get; set; } // TODO: Implement
+		
+		public Action<ItemData, int> OnItemUsed { get; set; }
 
 		public ItemContainer()
 		{
@@ -29,6 +32,18 @@ namespace WolfRPG.Inventory
 		public ItemContainer(IRPGDatabase database)
 		{
 			_rpgDatabase = database;
+		}
+
+		public void UseItem(ItemData item)
+		{
+			var slot = _inventorySlots.FirstOrDefault(s => s.Guid == item.RpgObject?.Guid);
+			if (slot == null)
+			{
+				Debug.LogError("Used item was not present in this inventory");
+				return;
+			}
+			
+			OnItemUsed?.Invoke(slot.ItemData, slot.SlotIndex);
 		}
 
 		/// <summary>
