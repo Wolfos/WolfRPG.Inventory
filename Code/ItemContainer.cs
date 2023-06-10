@@ -11,12 +11,11 @@ namespace WolfRPG.Inventory
 		/// <summary>
 		/// The amount of item slots
 		/// </summary>
-		public int Count => _inventorySlots.Count;
+		public int ItemCount => _inventorySlots.Count;
 		
 		private IRPGDatabase _rpgDatabase;
 		private List<InventorySlot> _inventorySlots = new();
-		
-		
+
 		public int Money { get; set; }
 		
 		public Action<ItemData, int> OnItemAdded { get; set; }
@@ -103,7 +102,7 @@ namespace WolfRPG.Inventory
 		/// Add an item to the first available slot in this inventory, or increase quantity if we already have it
 		/// </summary>
 		/// <param name="guid">The item's WolfRPG GUID</param>
-		public void AddItem(string guid)
+		public void AddItem(string guid, int quantity = 1)
 		{
 			var rpgItem = _rpgDatabase.GetObjectInstance(guid);
 
@@ -113,7 +112,7 @@ namespace WolfRPG.Inventory
 				return;
 			}
 			
-			AddItem(rpgItem);
+			AddItem(rpgItem, quantity);
 		}
 
 		/// <summary>
