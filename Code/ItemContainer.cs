@@ -45,6 +45,11 @@ namespace WolfRPG.Inventory
 			OnItemUsed?.Invoke(slot.ItemData, slot.SlotIndex);
 		}
 
+		public void Clear()
+		{
+			_inventorySlots.Clear();
+		}
+
 		/// <summary>
 		/// Add an item to the first available slot in this inventory, or increase quantity if we already have it
 		/// </summary>
@@ -95,6 +100,15 @@ namespace WolfRPG.Inventory
 			}
 			
 			var slotIndex = _inventorySlots.IndexOf(slot);
+			OnItemRemoved?.Invoke(slot.ItemData, slotIndex);
+		}
+
+		public void RemoveItemFromSlot(int slotIndex)
+		{
+			var slot = _inventorySlots[slotIndex];
+
+			_inventorySlots.Remove(slot);
+
 			OnItemRemoved?.Invoke(slot.ItemData, slotIndex);
 		}
 		
