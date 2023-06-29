@@ -1,4 +1,4 @@
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 using WolfRPG.Core;
 using WolfRPG.Core.Localization;
 
