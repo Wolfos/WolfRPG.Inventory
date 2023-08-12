@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using UnityEngine;
 using WolfRPG.Core;
 using WolfRPG.Core.Localization;
 
@@ -8,11 +9,15 @@ namespace WolfRPG.Inventory
 	{
 		[JsonIgnore]
 		public IRPGObject RpgObject { get; set; }
+		
+		// Visual representation of the item in the game world
+		[AssetReference(typeof(GameObject))]
+		public AssetReference Prefab { get; set; }
+			
 		public LocalizedString Name { get; set; }
 		public LocalizedString Description { get; set; }
 		public ItemType Type { get; set; }
 		public int BaseValue { get; set; }
-		public bool CanEquip { get; set; }
 		public bool CanUse { get; set; }
 		public float Weight { get; set; }
 	}

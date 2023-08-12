@@ -20,6 +20,7 @@ namespace WolfRPG.Inventory
 		RightHand,
 		// Two-handed sword, fishing rod, big gun
 		BothHands,
+		Back,
 		// Length of this enum
 		MAX
 	}
