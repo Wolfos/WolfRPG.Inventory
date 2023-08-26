@@ -6,6 +6,7 @@
 		Consumable,
 		Weapon,
 		Equipment,
+		Junk,
 		MAX
 	}
 }
