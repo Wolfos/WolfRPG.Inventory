@@ -15,6 +15,9 @@ namespace WolfRPG.Inventory
 		
 		// All visual equipment pieces are defined in the character prefab, this defines which pieces get activated by this equipment item
 		// Most clothing items are composed of multiple parts. For example, a pair of pants would affect hips, left leg, and right leg
-		public EquipmentPart[] EquipmentParts { get; set; } 
+		public EquipmentPart[] EquipmentParts { get; set; }
+		
+		[DBReference(4)] // category 4 = status effects
+		public RPGObjectReference StatusEffect { get; set; }
 	}
 }

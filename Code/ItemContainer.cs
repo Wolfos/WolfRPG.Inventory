@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using WolfRPG.Character;
 using WolfRPG.Core;
 
 namespace WolfRPG.Inventory
@@ -17,7 +18,8 @@ namespace WolfRPG.Inventory
 		private List<InventorySlot> _inventorySlots = new();
 
 		public int Money { get; set; }
-		
+		public CharacterData Owner { get; set; }
+
 		public Action<ItemData, int> OnItemAdded { get; set; }
 		public Action<ItemData, int> OnItemRemoved { get; set; } // TODO: Implement
 		
@@ -147,6 +149,17 @@ namespace WolfRPG.Inventory
 		public int GetQuantityFromSlot(int slot)
 		{
 			return _inventorySlots[slot].Quantity;
+		}
+
+		public float GetWeight()
+		{
+			float weight = 0;
+			foreach (var slot in _inventorySlots)
+			{
+				weight += slot.ItemData.Weight * slot.Quantity;
+			}
+
+			return weight;
 		}
 	}
 }

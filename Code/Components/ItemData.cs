@@ -18,7 +18,7 @@ namespace WolfRPG.Inventory
 		public LocalizedString Description { get; set; }
 		public ItemType Type { get; set; }
 		public int BaseValue { get; set; }
-		public bool CanUse { get; set; }
+		public bool CanUse { get; set; } // TODO: Is this value necessary? I feel like Type covers it
 		public float Weight { get; set; }
 	}
 }
