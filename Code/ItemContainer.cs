@@ -22,7 +22,6 @@ namespace WolfRPG.Inventory
 
 		public Action<ItemData, int> OnItemAdded { get; set; }
 		public Action<ItemData, int> OnItemRemoved { get; set; } // TODO: Implement
-		
 		public Action<ItemData, int> OnItemUsed { get; set; }
 
 		public ItemContainer()
