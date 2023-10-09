@@ -17,6 +17,7 @@ namespace WolfRPG.Inventory
 		private IRPGDatabase _rpgDatabase;
 		private List<InventorySlot> _inventorySlots = new();
 
+		public PriceList PriceList { get; set; }
 		public int Money { get; set; }
 		public CharacterData Owner { get; set; }
 
