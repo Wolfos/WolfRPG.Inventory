@@ -22,8 +22,9 @@ namespace WolfRPG.Inventory
 		public CharacterData Owner { get; set; }
 
 		public Action<ItemData, int> OnItemAdded { get; set; }
-		public Action<ItemData, int> OnItemRemoved { get; set; } // TODO: Implement
+		public Action<ItemData, int> OnItemRemoved { get; set; }
 		public Action<ItemData, int> OnItemUsed { get; set; }
+		public Action OnContentsChanged { get; set; }
 
 		public ItemContainer()
 		{
@@ -85,6 +86,7 @@ namespace WolfRPG.Inventory
 
 			var slotIndex = _inventorySlots.IndexOf(slot);
 			OnItemAdded?.Invoke(slot.ItemData, slotIndex);
+			OnContentsChanged?.Invoke();
 		}
 
 		public void RemoveItem(IRPGObject itemObject, int quantity = 1)
@@ -103,6 +105,7 @@ namespace WolfRPG.Inventory
 			
 			var slotIndex = _inventorySlots.IndexOf(slot);
 			OnItemRemoved?.Invoke(slot.ItemData, slotIndex);
+			OnContentsChanged?.Invoke();
 		}
 
 		public void RemoveItemFromSlot(int slotIndex)
@@ -112,6 +115,7 @@ namespace WolfRPG.Inventory
 			_inventorySlots.Remove(slot);
 
 			OnItemRemoved?.Invoke(slot.ItemData, slotIndex);
+			OnContentsChanged?.Invoke();
 		}
 		
 		/// <summary>
