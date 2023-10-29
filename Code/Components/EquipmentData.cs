@@ -27,5 +27,7 @@ namespace WolfRPG.Inventory
 		public bool OverrideAnimations { get; set; }
 		[AssetReference(typeof(AnimatorOverrideController))]
 		public AssetReference AnimationSet { get; set; }
+		
+		public int Material { get; set; }
 	}
 }
