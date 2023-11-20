@@ -11,5 +11,7 @@ namespace WolfRPG.Inventory
 		public AssetReference AttackSound { get; set; }
 		[AssetReference(typeof(AudioClip))]
 		public AssetReference HitSound { get; set; }
+
+		[AssetReference(typeof(GameObject))] public AssetReference HitParticles { get; set; }
 	}
 }
